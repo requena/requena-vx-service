@@ -1,0 +1,16 @@
+[{
+    "_id": "falemais30",
+    "nome":"FaleMais 30",
+    "minutos": 30,
+    "tarifa": 0.1
+},{
+    "_id": "falemais60",
+    "nome":"FaleMais 60",
+    "minutos": 60,
+    "tarifa": 0.1
+},{
+    "_id": "falemais120",
+    "nome":"FaleMais 120",
+    "minutos": 120,
+    "tarifa": 0.1
+}]
