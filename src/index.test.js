@@ -11,22 +11,22 @@ require("dotenv-safe").config();
 
 // Testes integrados
 
-// const test = require('tape');
-// const server = require("./server/server");
-// const listApi = [require("./vx-plano/api/plano"), require("./vx-tarifa/api/tarifa"), require("./vx-calculadora/api/calculadora")]
-// const listApiTest = [require("./vx-plano/api/plano.test"), require("./vx-tarifa/api/tarifa.test"), require("./vx-calculadora/api/calculadora.test")]
+ const test = require('tape');
+ const server = require("./server/server");
+ const listApi = [require("./vx-plano/api/plano"), require("./vx-tarifa/api/tarifa"), require("./vx-calculadora/api/calculadora")]
+ const listApiTest = [require("./vx-plano/api/plano.test"), require("./vx-tarifa/api/tarifa.test"), require("./vx-calculadora/api/calculadora.test")]
 
-// var app = null;
-// server.start(listApi, (err, app) => {
-//     var pr = [];
-//     for (var i = 0; i < listApiTest.length; i++) {
-//         pr.push(new Promise(function (resolve, reject) {
-//             listApiTest[i].runIntegratedTests(app, test);
-//             setTimeout(resolve, 1000, true);
-//         }));
-//     }
+ var app = null;
+ server.start(listApi, (err, app) => {
+     var pr = [];
+     for (var i = 0; i < listApiTest.length; i++) {
+         pr.push(new Promise(function (resolve, reject) {
+             listApiTest[i].runIntegratedTests(app, test);
+             setTimeout(resolve, 1000, true);
+         }));
+     }
 
-//     Promise.all(pr).finally(function () {
-//         server.stop();
-//     });
-// })
+     Promise.all(pr).finally(function () {
+         server.stop();
+     });
+ })
