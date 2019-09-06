@@ -1,6 +1,7 @@
 require("dotenv-safe").config();
 
 // Testes isolados
+
 // require("./config/mongodb.test").runTests();
 // require("./server/server.test").runTests();
 // require("./vx-tarifa/repository/repository.test").runTests();
