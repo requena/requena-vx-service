@@ -1,3 +1,7 @@
+/* Este é o a unica API do projeto que faz uso de outras APIs internas.
+Visando manter o app com capacidade de utilização em formato de microserviço
+todas as chamadas as demais APIs são realizadas utilizando um endereço de Gateway, 
+que inicia configurado como localhost porém pode ser facilmente transferido para um serviço como um nginx ou IIS */
 const request = require('request');
 
 function calcularTarifaAdicional(minutoGasto, minutoDisponivel, tarifaAdicional, tarifa) {
@@ -20,6 +24,7 @@ module.exports = (app) => {
         res.status(422).send("Dados para calculo invalidos");
         return;
       }
+      // Nesse ponto é feita a chamada para a API plano.js utilizando chamada HTTP externa, matendo as APIs desacopladas.
       request(process.env.GATEWAY_URL + '/plano/' + params.idPlano, (err2, res2, planoBody) => {
         if (err2) return next(err2);
         if (!planoBody) {
@@ -27,7 +32,7 @@ module.exports = (app) => {
           return;
         }
         var plano = JSON.parse(planoBody);
-
+// Iden request de cima
         request(process.env.GATEWAY_URL + '/tarifa/' + params.origem, (err1, res1, tarifaBody) => {
           var tarifa = JSON.parse(tarifaBody);
           tarifa.destino.forEach(element => {

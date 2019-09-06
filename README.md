@@ -22,7 +22,7 @@ A variável --dbpath corresponde ao local onde o mongodb irá utilizar par armaz
 
 O arquivo ./src/.env possuí as variáveis utilizadas pela aplicação, o projeto original já está configurado para utilizar as variáveis padrões, caso seja necessário customizar uma url ou porta, o faça nesse arquivo.
 
-Com o banco rodando e as configurações deitas, a sequencia de comando a seguir irá instalar a aplicação, inicializar o banco de dados com os valores padròes para testes e carga básica,
+Com o banco rodando e as configurações feitas, a sequencia de comando a seguir irá instalar a aplicação e inicializar o banco de dados com os valores padròes para testes e carga básica,
 
 ```sh
 cd requena-vx-service
@@ -37,7 +37,7 @@ npm start
 
 O arquivo ./src/index.test.js contém as chamadas para os testes automatizados, o arquivo é separado em "Testes isolados" e "Testes integrados".
 
-Para executar o teste uso o seguinte comando:
+Para executar o teste use o seguinte comando:
 
 ```sh
 npm test

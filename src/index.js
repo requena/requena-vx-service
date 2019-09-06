@@ -1,3 +1,4 @@
+/* Arquivo utilizado apenas para inicializar as APIs no server */
 require("dotenv-safe").config();
 const server = require("./server/server");
 

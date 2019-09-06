@@ -1,6 +1,8 @@
 require("dotenv-safe").config();
 
-// Testes isolados
+/* Testes isolados
+As linhas abaixo devem permanecer comentadas e servem para testes unitários durante fase de desenvolvimento.
+Qualquer uma pode ser executada de forma isolada, sem a necessidade de outros testes */
 
 // require("./config/mongodb.test").runTests();
 // require("./server/server.test").runTests();
@@ -10,7 +12,10 @@ require("dotenv-safe").config();
 // require("./vx-tarifa/api/tarifa.test").runTests();
 // require("./vx-calculadora/api/calculadora.test").runTests();
 
-// Testes integrados
+/* Testes integrados
+Utilizando um unico servidor e uma unica instancia do mongodb, 
+os testes são adicionados a um poll de promises e todos são executados de forma integrada, 
+permitindo um teste full na plataforma */ 
 
  const test = require('tape');
  const server = require("./server/server");

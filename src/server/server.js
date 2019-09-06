@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const mongodb = require("../config/mongodb");
-const cors = require('cors');
 
 
 var server = null;
@@ -11,6 +10,7 @@ var server = null;
 function start(api, callback) {
   const app = express();
   app.use(morgan('dev'));
+// Lib para proteção básica de serviços rest
   app.use(helmet());
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({
@@ -36,7 +36,7 @@ function start(api, callback) {
     res.status(500).send('Something went wrong!');
   })
 
-  // Inicia todas as APIs
+  // Inicia todas as APIs que foram transferidas para o Server, mantendo uma unica instancia do mongodb compartilhada entre as APIs
   for (var i = 0; i < api.length; i++) {
     api[i](app, mongodb);
   }

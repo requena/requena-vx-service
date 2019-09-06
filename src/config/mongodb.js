@@ -1,3 +1,5 @@
+/* JS que mantém a conexão com o banco de dados aberta.
+Deve ser mantida apenas uma instancia por Server inicializado */
 const MongoClient = require("mongodb").MongoClient;
 var connection = null;
 var db = null;
